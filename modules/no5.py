@@ -22,7 +22,8 @@ def get_self_number(max=200):
 			val = str (i + 1)										# val in string
 			if len(val) == 1:
 				val = int(val)										# val in integer
-				arr[(val * 2)-1][1] = False							# val is not a self number
+				if (val * 2 - 1) < max-1:
+					arr[(val * 2)-1][1] = False						# val is not a self number
 			elif len(val) == 2:
 				st, nd = int(val[0]), int(val[1])					# The 1st and 2nd digit of val
 				val  = int((st * 10) + nd)							# val in integer
@@ -44,3 +45,4 @@ def get_self_number(max=200):
 if __name__ == '__main__':
 	get_self_number()			# Expected: 1 3 5 7 9 20 31 42 53 64 75 86 97 108 110 121 132 143 154 165 176 187 198
 	get_self_number(max=1000)	# Expected: Please keep the max value below 1000, thanks! :)
+	get_self_number(max=9)		# Expected: 1 3 5 7
